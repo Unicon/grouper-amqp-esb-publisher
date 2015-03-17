@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+docker build --tag="dima767/grouper-demo" .

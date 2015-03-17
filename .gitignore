@@ -1,0 +1,14 @@
+.classpath
+.project
+.settings
+target/
+.idea/
+.DS_Store
+overlays/
+build/
+bin/
+*.iml
+*.ipr
+*.iws
+.gradle/
+docker/grouper/grouper-config/lib/

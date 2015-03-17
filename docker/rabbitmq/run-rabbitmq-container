@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+docker rm -f rabbitmq 2>/dev/null; docker run -d -e RABBITMQ_NODENAME=docker-rabbit -p 15672:15672 --name rabbitmq rabbitmq:management

@@ -1,0 +1,49 @@
+plugins {
+    id 'groovy'
+    id 'com.github.johnrengelman.shadow' version '1.2.0'
+}
+
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile("edu.internet2.middleware.grouper:grouper:$grouperVersion") {
+        transitive = false
+    }
+    compile "org.slf4j:slf4j-api:$slf4jVersion"
+    compile "org.springframework:spring-context:$springVersion"
+    compile "org.springframework.amqp:spring-rabbit:$springAmqpVersion"
+    compile("org.codehaus.groovy:groovy:$groovyVersion")
+    compile("org.codehaus.groovy:groovy-json:$groovyVersion")
+
+    testCompile "org.spockframework:spock-core:${spockVersion}"
+}
+
+shadowJar {
+    dependencies {
+        exclude(dependency("commons-logging:commons-logging"))
+        exclude(dependency("edu.internet2.middleware.grouper:grouper"))
+        exclude(dependency("org.slf4j:slf4j-api"))
+        exclude(dependency("aopalliance:aopalliance"))
+        exclude 'overview.html'
+        exclude 'overviewj.html'
+    }
+}
+
+clean {
+    delete 'docker/grouper/grouper-config/lib'
+}
+
+
+task dist(type: Copy, dependsOn: ['test', 'shadowJar']) {
+    into "docker/grouper/grouper-config/lib"
+    from "$buildDir/libs"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.3'
+}
