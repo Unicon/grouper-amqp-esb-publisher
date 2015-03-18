@@ -4,7 +4,7 @@ package net.unicon.grouper.changelog.esb.publisher
  *
  * Simply passes back a group name as a routing key
  */
-class GroupNameBasedRoutingKeyCreator extends AbstractGroupeNameExtractingRoutingKeyCreator {
+class GroupNameBasedRoutingKeyCreator extends AbstractGroupNameExtractingRoutingKeyCreator {
 
     GroupNameBasedRoutingKeyCreator(boolean replaceColonsWithPeriods) {
         super(replaceColonsWithPeriods)

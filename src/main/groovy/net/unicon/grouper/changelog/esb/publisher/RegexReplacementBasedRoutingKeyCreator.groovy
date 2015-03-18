@@ -4,7 +4,7 @@ package net.unicon.grouper.changelog.esb.publisher
  *
  * Implementation which replaces parts of the provided group name with values of configured regex replacement definition.
  */
-class RegexReplacementBasedRoutingKeyCreator extends AbstractGroupeNameExtractingRoutingKeyCreator {
+class RegexReplacementBasedRoutingKeyCreator extends AbstractGroupNameExtractingRoutingKeyCreator {
 
     private replacementDefinition
 

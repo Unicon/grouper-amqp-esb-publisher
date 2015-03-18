@@ -11,11 +11,11 @@ import groovy.util.logging.Slf4j
  * to return for it.
  */
 @Slf4j
-abstract class AbstractGroupeNameExtractingRoutingKeyCreator implements AmqpRoutingKeyCreator {
+abstract class AbstractGroupNameExtractingRoutingKeyCreator implements AmqpRoutingKeyCreator {
 
     private boolean replaceColonsWithPeriods
 
-    AbstractGroupeNameExtractingRoutingKeyCreator(boolean replaceColonsWithPeriods) {
+    AbstractGroupNameExtractingRoutingKeyCreator(boolean replaceColonsWithPeriods) {
         this.replaceColonsWithPeriods = replaceColonsWithPeriods
     }
 
