@@ -2,6 +2,10 @@
 
 This is an implementation of Grouper ESB changelog publisher which pushes Grouper ESB JSON messages over to a configured AMQP broker exchange.
 
+## Current release
+
+`1.0.0-M1`
+
 ## Prerequisites
 
 * AMQP Broker server (such as RabbitMQ)
@@ -10,7 +14,7 @@ This is an implementation of Grouper ESB changelog publisher which pushes Groupe
 
 ## Installation and configuration
 
-* Copy [AMQP Publisher jar](https://xxx) to `GROUPER_HOME/lib/grouper`
+* Copy [AMQP Publisher jar](https://github.com/Unicon/grouper-amqp-esb-publisher/releases/download/1.0.0-M1/grouper-amqp-esb-publisher-all.jar) to `GROUPER_HOME/lib/grouper`
 * Copy sample log4j configuration to `GROUPER_HOME/conf/log4j.properties`
 
 ```bash
@@ -50,4 +54,5 @@ Custom required properties are:
 * `changeLog.consumer.esbAmqp.rabbitMqHostName = [PUT A HOSTNAME OF RabbitMq server here]`
 * `changeLog.consumer.esbAmqp.rabbitMqDefaultExchange = [PUT designated AMQP exchange name for grouper messages here]`
 
-Sample configuration files are available [here]()
+Sample configuration files are [log4j.properties](https://github.com/Unicon/grouper-amqp-esb-publisher/releases/download/1.0.0-M1/log4j.properties)
+and [groper-loader.properties](https://github.com/Unicon/grouper-amqp-esb-publisher/releases/download/1.0.0-M1/grouper-loader.properties)
