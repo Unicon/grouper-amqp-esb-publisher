@@ -2,13 +2,13 @@ package net.unicon.grouper.changelog.esb.publisher
 
 /**
  *
- * Implementation which replaces parts of the provided group name with values of configured regex replacement definition.
+ * Implementation which replaces parts of the provided group name with values of configured regex replacement definition DSL.
  */
-class RegexReplacementBasedRoutingKeyCreator extends AbstractGroupNameExtractingRoutingKeyCreator {
+class CustomDslRegexReplacementBasedRoutingKeyCreator extends AbstractGroupNameExtractingRoutingKeyCreator {
 
     private replacementDefinition
 
-    RegexReplacementBasedRoutingKeyCreator(boolean replaceColonsWithPeriods, String replacementDefinitionString) {
+    CustomDslRegexReplacementBasedRoutingKeyCreator(boolean replaceColonsWithPeriods, String replacementDefinitionString) {
         super(replaceColonsWithPeriods)
         this.replacementDefinition = replacementDefinitionString.tokenize('___').collect { it.tokenize('->').collect { it.replaceAll('@rm@', '') } }
     }

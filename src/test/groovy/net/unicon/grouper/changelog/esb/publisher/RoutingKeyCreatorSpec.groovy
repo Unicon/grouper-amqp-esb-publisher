@@ -39,7 +39,7 @@ class RoutingKeyCreatorSpec extends Specification {
 
     def 'regex replacement implementation without colons replacement'() {
         given:
-        def routingKeyCreatorUnderTest = new RegexReplacementBasedRoutingKeyCreator(false, this.regexReplacementDefinition)
+        def routingKeyCreatorUnderTest = new CustomDslRegexReplacementBasedRoutingKeyCreator(false, this.regexReplacementDefinition)
 
         expect:
         routingKeyCreatorUnderTest.createRoutingKey(this.esbEventJsonPayload) == regex_routingKey_Without_ColonsReplaced
@@ -47,7 +47,7 @@ class RoutingKeyCreatorSpec extends Specification {
 
     def 'regex replacement implementation with colons replacement'() {
         given:
-        def routingKeyCreatorUnderTest = new RegexReplacementBasedRoutingKeyCreator(true, this.regexReplacementDefinition)
+        def routingKeyCreatorUnderTest = new CustomDslRegexReplacementBasedRoutingKeyCreator(true, this.regexReplacementDefinition)
 
         expect:
         routingKeyCreatorUnderTest.createRoutingKey(this.esbEventJsonPayload) == regex_routingKey_With_ColonsReplaced

@@ -33,7 +33,7 @@ public class ApplicationConfig {
 
         final boolean replaceColons = (StringUtils.hasText(replaceColonsWithPeriods) && "true".equals(replaceColonsWithPeriods));
         if (StringUtils.hasText(regexReplacementDefinition)) {
-            return new RegexReplacementBasedRoutingKeyCreator(replaceColons, regexReplacementDefinition);
+            return new SpelRegexReplacementBasedRoutingKeyCreator(replaceColons, regexReplacementDefinition);
         }
         else {
             return new GroupNameBasedRoutingKeyCreator(replaceColons);
