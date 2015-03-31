@@ -10,11 +10,11 @@ import org.springframework.expression.spel.support.StandardEvaluationContext;
  */
 public class SpelRegexReplacementBasedRoutingKeyCreator extends AbstractGroupNameExtractingRoutingKeyCreator {
 
-    private final String replacementDefinition;
+    private final Expression parsedExpression;
 
     public SpelRegexReplacementBasedRoutingKeyCreator(boolean replaceColonsWithPeriods, String replacementDefinitionString) {
         super(replaceColonsWithPeriods);
-        this.replacementDefinition = replacementDefinitionString;
+        this.parsedExpression = new SpelExpressionParser().parseExpression(replacementDefinitionString);
     }
 
     @Override
@@ -22,10 +22,6 @@ public class SpelRegexReplacementBasedRoutingKeyCreator extends AbstractGroupNam
         if (groupName == null) {
             return null;
         }
-        SpelExpressionParser parser = new SpelExpressionParser();
-        Expression parsedExpression = parser.parseExpression(this.replacementDefinition);
-        StandardEvaluationContext context = new StandardEvaluationContext(groupName);
-
-        return String.class.cast(parsedExpression.getValue(context));
+        return String.class.cast(this.parsedExpression.getValue(new StandardEvaluationContext(groupName)));
     }
 }
