@@ -43,9 +43,9 @@ changeLog.consumer.esbAmqp.publisher.class = net.unicon.grouper.changelog.esb.pu
 changeLog.consumer.esbAmqp.rabbitMqHostName = rabbit.docker
 changeLog.consumer.esbAmqp.rabbitMqDefaultExchange = amq.topic
 
-# Syntax: key(regex group that needs replacement) -> value (replacement value), separated by ___ (three underscore characters).
-# @rm@ mnemonic represents complete removal of the matched regex value from the resultant string
-changeLog.consumer.esbAmqp.regexReplacementDefinition = ^hawaii.edu:->group.modify.___(:enrolled|:waitlisted|:withdrawn)$->@rm@
+# SpEL-based regex replacement definition. The chain of 'replaceFirst' method calls will be applied to an extracted group name (String) at runtime
+# See: http://docs.oracle.com/javase/7/docs/api/java/lang/String.html#replaceFirst(java.lang.String,%20java.lang.String)
+changeLog.consumer.esbAmqp.regexReplacementDefinition = replaceFirst('^hawaii.edu:', 'group.modify.').replaceFirst('(:enrolled|:waitlisted|:withdrawn)$', '')
 changeLog.consumer.esbAmqp.replaceRoutingKeyColonsWithPeriods = true
 ```
 
