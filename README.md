@@ -56,7 +56,7 @@ Custom required properties are:
 * `changeLog.consumer.esbAmqp.rabbitMqDefaultExchange = [PUT designated AMQP exchange name for grouper messages here]`
 
 Sample configuration files are [log4j.properties](https://github.com/Unicon/grouper-amqp-esb-publisher/releases/download/1.0.0-M2/log4j.properties)
-and [groper-loader.properties](https://github.com/Unicon/grouper-amqp-esb-publisher/releases/download/1.0.0-M2/grouper-loader.properties)
+and [grouper-loader.properties](https://github.com/Unicon/grouper-amqp-esb-publisher/releases/download/1.0.0-M2/grouper-loader.properties)
 
 ## Acknowledgements
 Unicon's work on the RabbitMQ ESB Publisher is funded through a project with the University of Hawaii.
