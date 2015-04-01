@@ -65,4 +65,3 @@ These individuals have provided guidance through out the development process:
 
 * Michael Hodges
 * Julio Polo
-* 
