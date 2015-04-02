@@ -15,12 +15,12 @@ import org.springframework.util.StringUtils;
 public class ApplicationConfig {
 
     @Bean
-    public AmqpTemplate amqpTemplate(@Value("${changeLog.consumer.esbAmqp.rabbitMqHostName}")
-                                     String rabbitMqHostName,
-                                     @Value("${changeLog.consumer.esbAmqp.rabbitMqDefaultExchange}")
+    public AmqpTemplate amqpTemplate(@Value("${changeLog.consumer.esbAmqp.hostName}")
+                                     String hostName,
+                                     @Value("${changeLog.consumer.esbAmqp.defaultExchange}")
                                      String defaultExchange) {
 
-        RabbitTemplate rabbitTemplate = new RabbitTemplate(new CachingConnectionFactory(rabbitMqHostName));
+        RabbitTemplate rabbitTemplate = new RabbitTemplate(new CachingConnectionFactory(hostName));
         rabbitTemplate.setExchange(defaultExchange);
         return rabbitTemplate;
     }

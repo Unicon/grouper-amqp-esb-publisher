@@ -4,7 +4,7 @@ This is an implementation of Grouper ESB changelog publisher which pushes Groupe
 
 ## Current release
 
-`1.0.0-M2`
+`1.0.0-RC1`
 
 ## Prerequisites
 
@@ -14,7 +14,7 @@ This is an implementation of Grouper ESB changelog publisher which pushes Groupe
 
 ## Installation and configuration
 
-* Copy [AMQP Publisher jar](https://github.com/Unicon/grouper-amqp-esb-publisher/releases/download/1.0.0-M2/grouper-amqp-esb-publisher-all.jar) to
+* Copy [AMQP Publisher jar](https://github.com/Unicon/grouper-amqp-esb-publisher/releases/download/1.0.0-RC1/grouper-amqp-esb-publisher-all.jar) to
 `GROUPER_HOME/lib/grouper`
 * Copy sample log4j configuration to `GROUPER_HOME/conf/log4j.properties`
 
@@ -40,8 +40,8 @@ changeLog.consumer.esbAmqp.quartzCron = 0 * * * * ?
 changeLog.consumer.esbAmqp.elfilter = event.eventType eq 'GROUP_DELETE' || event.eventType eq 'GROUP_ADD' || event.eventType eq 'MEMBERSHIP_DELETE' || event.eventType eq 'MEMBERSHIP_ADD'
 
 changeLog.consumer.esbAmqp.publisher.class = net.unicon.grouper.changelog.esb.publisher.EsbAmqpPublisher
-changeLog.consumer.esbAmqp.rabbitMqHostName = rabbit.docker
-changeLog.consumer.esbAmqp.rabbitMqDefaultExchange = amq.topic
+changeLog.consumer.esbAmqp.hostName = rabbit.docker
+changeLog.consumer.esbAmqp.defaultExchange = amq.topic
 
 # SpEL-based regex replacement definition. The chain of 'replaceFirst' method calls will be applied to an extracted group name (String) at runtime
 # See: http://docs.oracle.com/javase/7/docs/api/java/lang/String.html#replaceFirst(java.lang.String,%20java.lang.String)
@@ -55,8 +55,8 @@ Custom required properties are:
 * `changeLog.consumer.esbAmqp.rabbitMqHostName = [PUT A HOSTNAME OF RabbitMq server here]`
 * `changeLog.consumer.esbAmqp.rabbitMqDefaultExchange = [PUT designated AMQP exchange name for grouper messages here]`
 
-Sample configuration files are [log4j.properties](https://github.com/Unicon/grouper-amqp-esb-publisher/releases/download/1.0.0-M2/log4j.properties)
-and [grouper-loader.properties](https://github.com/Unicon/grouper-amqp-esb-publisher/releases/download/1.0.0-M2/grouper-loader.properties)
+Sample configuration files are [log4j.properties](https://github.com/Unicon/grouper-amqp-esb-publisher/releases/download/1.0.0-RC1/log4j.properties)
+and [grouper-loader.properties](https://github.com/Unicon/grouper-amqp-esb-publisher/releases/download/1.0.0-RC1/grouper-loader.properties)
 
 ## Acknowledgements
 Unicon's work on the RabbitMQ ESB Publisher is funded through a project with the University of Hawaii.
