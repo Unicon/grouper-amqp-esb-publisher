@@ -18,9 +18,15 @@ public class ApplicationConfig {
     public AmqpTemplate amqpTemplate(@Value("${changeLog.consumer.esbAmqp.hostName}")
                                      String hostName,
                                      @Value("${changeLog.consumer.esbAmqp.defaultExchange}")
-                                     String defaultExchange) {
-
-        RabbitTemplate rabbitTemplate = new RabbitTemplate(new CachingConnectionFactory(hostName));
+                                     String defaultExchange,
+                                     @Value("${changeLog.consumer.esbAmqp.username}")
+                                     String username,
+                                     @Value("${changeLog.consumer.esbAmqp.password}")
+                                     String password) {
+        CachingConnectionFactory factory = new CachingConnectionFactory(hostName);
+        factory.setUsername(username);
+        factory.setPassword(password);
+        RabbitTemplate rabbitTemplate = new RabbitTemplate(factory);
         rabbitTemplate.setExchange(defaultExchange);
         return rabbitTemplate;
     }
